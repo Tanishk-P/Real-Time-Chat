@@ -1,0 +1,64 @@
+.formContainer{
+    // background-color: #a7bcff;
+    background-image: url('../src/images/starry-night-8.jpg');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+
+    .formWrapper{
+        position: relative;
+        left: 800px;
+        bottom: 50px;
+        z-index: 3000;
+        background-color: transparent;
+        backdrop-filter: blur(2px);
+        box-shadow: 0 4px 40px#a7bcff;
+        padding: 20px 60px;
+        border: 1px solid #a6a4df;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+
+        .logo{
+            color: #a7bcff;
+            font-weight: bold;
+            font-size: 36px;
+        }        
+        .title{
+            color: #a7bcff;
+            font-size: 12px;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            input{
+                padding: 15px;
+                border: none;
+                width: 250px;
+                border-bottom: 1px solid #a7bcff;
+                background: none;
+                font-size: 14px;
+                color: #a7bcff;
+                &::placeholder{
+                    color: #a7bcff;
+                    font-size: 14px;
+                }
+            }
+            button{
+                cursor: pointer;
+                padding: 15px;
+                border: none;
+                background-color: #a7bcff;
+                color: #504daa;
+                border-radius: 10px;
+                font-size: 16px;
+            }
+        }
+    }
+}
