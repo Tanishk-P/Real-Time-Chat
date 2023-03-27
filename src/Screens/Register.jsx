@@ -15,7 +15,7 @@ function Register() {
                 <input type={'file'} id='file' hidden/>
                 <label htmlFor="file" style={{cursor: 'pointer'}}>
                   <FcAddImage size={30} /> 
-                  <span>Add Profile Image</span>
+                  <span>Add Profile Image.</span>
                 </label>
                 <button>Sign Up</button>
             </form>
