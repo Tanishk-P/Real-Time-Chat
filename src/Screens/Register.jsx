@@ -3,7 +3,6 @@ import { FcAddImage } from "react-icons/fc"
 import { useNavigate } from "react-router-dom";
 import Logo from "../CommonComponents/Logo.jsx";
 import { PageRoutes } from "../utls/PageRoutes.js";
-import * as labelConst from "../utls/LabelConstants.js"
 
 function Register() {
   const navigate = useNavigate();
