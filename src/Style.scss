@@ -90,3 +90,98 @@
         }
     }
 }
+
+.home{
+    background-image: url('../src/images/187161.jpg');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container{
+        background-color: transparent;
+        // backdrop-filter: blur(5px);
+        box-shadow: 0 4px 40px #202023;
+        // padding: 20px 60px;
+        width: 65%;
+        height: 80%;
+        border: 1px solid #a6a4df;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+
+        .sidebar{
+            flex: 1;
+            // background-color: rgba(244, 55, 115, 0.948);
+            border-right: 1px solid #a6a4df;
+            backdrop-filter: blur(10px);
+
+            .navbar{
+                display: flex;
+                padding: 5px;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #a6a4df;
+                background-color: rgba(244, 55, 115, 0.948);
+                .logo{
+                    display: flex;
+                    gap: 10px;
+                    color: white;
+                    align-items: center;
+                    justify-self: flex-start;
+                }
+                .user{
+                    color: white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+
+                    button{
+                        cursor: pointer;
+                        border: none;
+                        padding: 5px;
+                        border-radius: 4px;
+                        background-color: #d2cd6b;
+                        color: rgba(244, 55, 115, 0.948);
+                    }
+                    button:hover{
+                        background-color: rgba(244, 55, 115, 0.948);
+                        color: #d2cd6b;
+                        border: 1px solid #d2cd6b;
+                    }
+                }
+            }
+            .search{
+                border-bottom: 1px solid #a6a4df;
+                // padding: 3px;
+
+                .searchForm{
+                    input{
+                        background-color: transparent;
+                        color: #a6a4df;
+                        border: none;
+                        // display: flex;
+                        // justify-self: center;
+                        // align-self: center;
+                        height: 30px;
+                        width: 290px;
+                        &::placeholder{
+                            padding-left: 20px;
+                            color: #a7bcff;
+                            display: flex;
+                            justify-self: center;
+                        }
+                    }
+                }
+            }
+        }
+        .chat{
+            flex: 2;
+            background-color: #d2cd6b;
+            backdrop-filter: blur(2px);
+        }
+    }
+}
