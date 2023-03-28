@@ -13,7 +13,7 @@ function Login() {
                 <input type={'password'} placeholder='Password'/>
                 <button>Sign In</button>
             </form>
-            <p>Don't have an Account? Register</p>
+            <p>Don't have an Account? <a href='/signup'>Register</a> </p>
         </div>
     </div>
   )
