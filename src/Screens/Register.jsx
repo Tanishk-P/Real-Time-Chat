@@ -1,8 +1,12 @@
 import React from "react";
 import { FcAddImage } from "react-icons/fc"
+import { useNavigate } from "react-router-dom";
 import Logo from "../CommonComponents/Logo.jsx";
+import { PageRoutes } from "../utls/PageRoutes.js";
 
 function Register() {
+  const navigate = useNavigate();
+
   return (
     <div className="formContainer">
         <div className="formWrapper">
@@ -19,7 +23,7 @@ function Register() {
                 </label>
                 <button>Sign Up</button>
             </form>
-            <p>Have an Account? <a href='/login'>Login</a></p>
+            <p>Have an Account? <span onClick={() => navigate(PageRoutes.login)}>Login!</span></p>
         </div>
     </div>
   );

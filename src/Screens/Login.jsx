@@ -1,7 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import Logo from '../CommonComponents/Logo';
+import { PageRoutes } from '../utls/PageRoutes';
 
 function Login() {
+  const navigate = useNavigate();
+
   return (
     <div className="formContainer">
         <div className="formWrapper">
@@ -13,7 +17,8 @@ function Login() {
                 <input type={'password'} placeholder='Password'/>
                 <button>Sign In</button>
             </form>
-            <p>Don't have an Account? <a href='/signup'>Register</a> </p>
+            <p>Don't have an Account? <span onClick={() => navigate(PageRoutes.signup)}>Register!</span></p>
+            
         </div>
     </div>
   )
