@@ -3,6 +3,7 @@ import { FcAddImage } from "react-icons/fc"
 import { useNavigate } from "react-router-dom";
 import Logo from "../CommonComponents/Logo.jsx";
 import { PageRoutes } from "../utls/PageRoutes.js";
+import * as labelConst from "../utls/LabelConstants.js"
 
 function Register() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ function Register() {
             <span className="logo"><Logo/> Live Chat</span>
             <span className="title">Register</span>
             <form>
-                <input type={'text'} placeholder='Full Name'/>
+                <input type={'text'} placeholder='User name'/>
                 <input type={'email'} placeholder='Email address'/>
                 <input type={'password'} placeholder='Password'/>
                 <input type={'file'} id='file' hidden/>
