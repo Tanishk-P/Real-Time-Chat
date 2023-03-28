@@ -56,13 +56,14 @@
                 cursor: pointer;
                 padding: 15px;
                 border: none;
-                background-color: #a6a4df ;
+                // background-color: #a6a4df ;
                 color: #5d5b8d;
+                background-color: rgba(241, 241, 71, 0.886);
                 border-radius: 10px;
                 font-size: 16px;
             }
             button:hover{
-                background-color: #5d5b8d;
+                background-color: rgba(244, 55, 115, 0.948);
                 color: #a7bcff;
             }
             label{
@@ -78,6 +79,14 @@
         p{
             // color: #5d5b8d;
             color: #a7bcff;
+
+            span{
+                color: #d2cd6b;
+                cursor: pointer;
+            }
+            span:hover{
+                color:  rgba(244, 55, 115, 0.948);
+            }
         }
     }
 }
