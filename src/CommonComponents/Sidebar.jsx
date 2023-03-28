@@ -9,6 +9,9 @@ function Sidebar() {
       <Navbar />
       <Search />
       <Chats />
+      <div className='homeInfo'>
+        
+      </div>
     </div>
   )
 }

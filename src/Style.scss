@@ -160,7 +160,7 @@
             }
             .search{
                 border-bottom: 1px solid #a6a4df;
-                backdrop-filter: blur(10px);
+                backdrop-filter: blur(2px);
 
                 .searchForm{
                     .searchBox{
@@ -216,10 +216,13 @@
             .chats{
                 padding: 0px;
                 backdrop-filter: blur(8px);
-                background-color: rgba(244, 55, 115, 0.948);
-                height: 73.5%;
-                overflow: hidden;
-                
+                // background-color: rgba(244, 55, 115, 0.948);
+                // height: 73.5%;
+                max-height: 130px;
+                overflow-y: scroll;
+                &::-webkit-scrollbar{
+                    display: none;
+                }
                 .userProfile{
                     cursor: pointer;
                     color: #a7bcff;
@@ -231,11 +234,18 @@
                     border-bottom: 1px solid #a6a4df;
                 }
                 .userProfile:hover{
-                    background-color: #d2cd6b;
+                    background-color: rgba(244, 55, 115, 0.948);
                     color: white;
                     padding: 5px;
                     border-radius: 10px;
                 }
+            }
+            .homeInfo{
+                border-top: 1px solid #a7bcff;
+                position: relative;
+                top: 210px;
+                height: -webkit-fill-available;
+                background-color: rgba(244, 55, 115, 0.948);  
             }
         }
         .chat{

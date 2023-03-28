@@ -14,11 +14,11 @@ function Chats() {
       </div>
       <div className='userProfile'>
           <FemaleUser />
-          <span>Chari</span>
+          <span>Mom</span>
       </div>
       <div className='userProfile'>
           <MaleUser />
-          <span>Tanishk</span>
+          <span>Dad</span>
       </div>
     </div>
   )
