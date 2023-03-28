@@ -43,6 +43,7 @@
                 padding: 15px;
                 border: none;
                 width: 250px;
+                outline: none;
                 border-bottom: 1px solid #a7bcff;
                 background: none;
                 font-size: 12px;
@@ -56,6 +57,7 @@
                 cursor: pointer;
                 padding: 15px;
                 border: none;
+                outline: none;
                 // background-color: #a6a4df ;
                 color: #5d5b8d;
                 background-color: rgba(241, 241, 71, 0.886);
@@ -116,7 +118,7 @@
             flex: 1;
             // background-color: rgba(244, 55, 115, 0.948);
             border-right: 1px solid #a6a4df;
-            backdrop-filter: blur(10px);
+            // backdrop-filter: blur(10px);
 
             .navbar{
                 display: flex;
@@ -141,6 +143,8 @@
 
                     button{
                         cursor: pointer;
+                        display: flex;
+                        align-content: center;
                         border: none;
                         padding: 5px;
                         border-radius: 4px;
@@ -156,25 +160,81 @@
             }
             .search{
                 border-bottom: 1px solid #a6a4df;
-                // padding: 3px;
+                backdrop-filter: blur(10px);
 
                 .searchForm{
-                    input{
-                        background-color: transparent;
-                        color: #a6a4df;
-                        border: none;
-                        // display: flex;
-                        // justify-self: center;
-                        // align-self: center;
-                        height: 30px;
-                        width: 290px;
-                        &::placeholder{
+                    .searchBox{
+                        display: flex;
+                        justify-content: space-evenly;
+                        text-align: center;
+                        padding: 8px;
+                        span{
                             padding-left: 20px;
-                            color: #a7bcff;
-                            display: flex;
+                            padding-top: 2px;
                             justify-self: center;
+                            color: #d2cd6b;
+                        }
+                        input{
+                            background-color: transparent;
+                            color: #a6a4df;
+                            border: none;
+                            outline: none;
+                            padding-left: 10px;
+                            // height: 30px;
+                            width: 290px;
+                            &::placeholder{
+                                color: #d2cd6b;
+                                display: flex;
+                                justify-self: center;
+                                align-self: center;
+                            }
                         }
                     }
+                }
+                .userInfo{
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    backdrop-filter: blur(10px);
+                    .userProfile{
+                        cursor: pointer;
+                        color: #a7bcff;
+                        display: flex;
+                        justify-content: space-evenly;
+                        align-items: center;
+                        padding: 10px;
+                        gap: 10px;
+                    }
+                    .userProfile:hover{
+                        background-color: rgba(244, 55, 115, 0.948);
+                        color: white;
+                        padding: 5px;
+                        border-radius: 10px;
+                    }
+                }
+            }
+            .chats{
+                padding: 0px;
+                backdrop-filter: blur(8px);
+                background-color: rgba(244, 55, 115, 0.948);
+                height: 73.5%;
+                overflow: hidden;
+                
+                .userProfile{
+                    cursor: pointer;
+                    color: #a7bcff;
+                    display: flex;
+                    // justify-content: flex-start;
+                    // align-items: center;
+                    padding: 5px;
+                    gap: 10px;
+                    border-bottom: 1px solid #a6a4df;
+                }
+                .userProfile:hover{
+                    background-color: #d2cd6b;
+                    color: white;
+                    padding: 5px;
+                    border-radius: 10px;
                 }
             }
         }
