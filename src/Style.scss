@@ -214,10 +214,8 @@
                 }
             }
             .chats{
-                padding: 0px;
-                // backdrop-filter: blur(8px);
-                // background-color: rgba(244, 55, 115, 0.948);
-                // height: 73.5%;
+                display: flex;
+                flex-direction: column;
                 max-height: 130px;
                 overflow-y: scroll;
                 &::-webkit-scrollbar{
@@ -232,6 +230,18 @@
                     padding: 5px;
                     gap: 10px;
                     border-bottom: 1px solid #a6a4df;
+
+                    .userChatInfo{
+                        display: flex;
+                        flex-direction: column;
+                        span{
+                            font-weight: bold;
+                        }
+                        p{
+                            font-size: small;
+                            display: contents;
+                        }
+                    }
                 }
                 .userProfile:hover{
                     background-color: rgba(244, 55, 115, 0.948);
@@ -240,23 +250,23 @@
                     border-radius: 10px;
                 }
             }
-            .homeInfo{
-                border-top: 1px solid #a7bcff;
-                position: relative;
-                top: 210px;
-                height: -webkit-fill-available;
-                background-color: rgba(244, 55, 115, 0.948);
+            // .homeInfo{
+            //     border-top: 1px solid #a7bcff;
+            //     position: relative;
+            //     // top: 210px;
+            //     height: -webkit-fill-available;
+            //     background-color: rgba(244, 55, 115, 0.948);
                 
-                span{
-                    display: flex;
-                    gap: 10px;
-                    font-size: 12px;
-                    color: white;
-                    justify-content: center;
-                    padding-top: 10px;
-                    align-items: center;
-                }
-            }
+            //     span{
+            //         display: flex;
+            //         gap: 10px;
+            //         font-size: 12px;
+            //         color: white;
+            //         justify-content: center;
+            //         padding-top: 10px;
+            //         align-items: center;
+            //     }
+            // }
         }
         .chat{
             flex: 2;

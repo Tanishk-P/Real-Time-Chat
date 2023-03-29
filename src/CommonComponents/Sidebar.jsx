@@ -10,9 +10,9 @@ function Sidebar() {
       <Navbar />
       <Search />
       <Chats />
-      <div className='homeInfo'>
+      {/* <div className='homeInfo'>
         <span>Powered by <Logo height={24} width={24} /> Live Chat </span>
-      </div>
+      </div> */}
     </div>
   )
 }
