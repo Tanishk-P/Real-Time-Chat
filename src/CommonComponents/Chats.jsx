@@ -6,19 +6,31 @@ function Chats() {
     <div className='chats'>
       <div className='userProfile'>
           <FemaleUser />
-          <span>Chari</span>
+          <div className='userChatInfo'>
+            <span>Chari</span>
+            <p>Hello. How are u doing?</p>
+          </div>
       </div>
       <div className='userProfile'>
           <MaleUser />
-          <span>Tanishk</span>
+          <div className='userChatInfo'>
+            <span>Tanishk</span>
+            <p>Hello</p>
+          </div>
       </div>
       <div className='userProfile'>
           <FemaleUser />
-          <span>Mom</span>
+          <div className='userChatInfo'>
+            <span>Chari</span>
+            <p>Hello. How are u doing?</p>
+          </div>
       </div>
       <div className='userProfile'>
           <MaleUser />
-          <span>Dad</span>
+          <div className='userChatInfo'>
+            <span>Tanishk</span>
+            <p>Hello</p>
+          </div>
       </div>
     </div>
   )
