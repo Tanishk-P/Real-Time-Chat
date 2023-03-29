@@ -6,8 +6,8 @@ function Message() {
   <>
       <div className='message'>
         <div className='messageInfo'>
-          <FemaleUser width={24} height={24} />
-          <span>just now</span>
+          {/* <FemaleUser width={24} height={24} />
+          <span>just now</span> */}
         </div>
         <div className='messageContent'>
           <span>Hello. How are you doing?</span>
@@ -15,8 +15,8 @@ function Message() {
       </div>
       <div className='message owner'>
         <div className='messageInfo'>
-          <MaleUser width={24} height={24} />
-          <span>just now</span>
+          {/* <MaleUser width={24} height={24} />
+          <span>just now</span> */}
         </div>
         <div className='messageContent'>
           <span>Hi! I'm doing well?</span>
