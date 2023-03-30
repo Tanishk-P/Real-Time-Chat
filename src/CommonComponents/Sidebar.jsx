@@ -4,7 +4,7 @@ import Search from './Search';
 import Chats from './Chats';
 import Logo from './Logo';
 import MaleUser from './UserAvatar';
-import { Button, Col, Row } from 'antd';
+import { Button, Col, message, Popconfirm, Row } from 'antd';
 import { MdLogout, MdSettings } from 'react-icons/md';
 import { PageRoutes } from '../utls/PageRoutes';
 import { useNavigate } from 'react-router-dom';
@@ -13,6 +13,15 @@ function Sidebar() {
   const [isClicked, setClick] = useState(false);
   const [hover, setHover] = useState(false);
   const navigate = useNavigate();
+
+  const confirm = () => {
+    message.success('Logged out successfully. Visit Again!');
+    navigate(PageRoutes.login);
+  };
+
+  const cancel = () => {
+    message.error('Great! Glad that you are with us.');
+  };
 
   return (
     <div>
@@ -54,7 +63,17 @@ function Sidebar() {
               <Button type='primary' size={'middle'} shape={'default'} icon={<MaleUser width={24} height={24} />} ></Button>
             </Col>
             <Col>
-              <Button danger onClick={() => navigate(PageRoutes.login)} type='primary' size='middle'><MdLogout size={20} /></Button>
+              <Popconfirm 
+                title='Log Out'
+                description='Logging out so soon?'
+                onConfirm={confirm}
+                onCancel={cancel} 
+                okText='Yes'
+                cancelText='No'
+                placement="bottomRight"
+                >
+                <Button danger type='primary' size='middle'><MdLogout size={20} /></Button>
+              </Popconfirm>
             </Col>
           </Row>
           </div>
