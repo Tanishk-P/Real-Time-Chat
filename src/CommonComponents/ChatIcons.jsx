@@ -13,7 +13,7 @@ export function AddFriend() {
 }
 
 export function More() {
-    return <img src={more} width={32} height={32} alt='more' />
+    return <img onClick={() => MoreClicked()} src={more} width={32} height={32} alt='more' />
 }
 
 export function Send() {
@@ -22,4 +22,8 @@ export function Send() {
 
 export function Icons() {
     return <img src={icon} width={20} height={20} alt='icons' />
+}
+
+ function MoreClicked() {
+    return alert
 }

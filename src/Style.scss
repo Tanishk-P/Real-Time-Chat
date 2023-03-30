@@ -217,7 +217,7 @@
             .chats{
                 display: flex;
                 flex-direction: column;
-                max-height: 130px;
+                height: 390px;
                 overflow-y: scroll;
                 &::-webkit-scrollbar{
                     display: none;
@@ -251,24 +251,49 @@
                     border-radius: 10px;
                 }
             }
-            // .homeInfo{
-            //     border-top: 1px solid #a7bcff;
-            //     position: relative;
-            //     // top: 210px;
-            //     height: -webkit-fill-available;
-            //     background-color: rgba(244, 55, 115, 0.948);
+            .homeInfo{
+                border-top: 1px solid #a7bcff;
+                position: fixed;
+                bottom: 4px;
+                width: 353px;
                 
-            //     span{
-            //         display: flex;
-            //         gap: 10px;
-            //         font-size: 12px;
-            //         color: white;
-            //         justify-content: center;
-            //         padding-top: 10px;
-            //         align-items: center;
-            //     }
-            // }
+                background-color: rgba(244, 55, 115, 0.948);
+                
+                span{
+                    display: flex;
+                    gap: 10px;
+                    font-size: 12px;
+                    height: 32px;
+                    color: white;
+                    justify-content: center;
+                    padding-top: 10px;
+                    align-items: center;
+                }
+            }
         }
+        .logoButton{
+            &:hover{
+                background-color: #635fd3;
+            }
+        }
+        .logoContainer {
+            position: relative;
+          }
+          .menu {
+            position: fixed;
+            z-index: 3000;
+            top: 120px;
+            left: 120px;
+            display: flex;
+            flex-direction: column;
+            // background-color: #fff;
+            border-radius: 5px;
+            padding: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          }
+          .menu button {
+            margin: 5px;
+          }
         .chat{
             flex: 2;
             // background-color: #d2cd6b;
@@ -357,6 +382,7 @@
 
             .input{
                 backdrop-filter: blur(5px);
+                position: relative;
                 z-index: 3000;
                 padding: 5px;
                 gap: 5px;

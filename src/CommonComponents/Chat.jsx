@@ -1,6 +1,7 @@
 import React from 'react'
 import Camera, { AddFriend, More } from './ChatIcons'
 import ChatInput from './ChatInput'
+import Logo from './Logo'
 import Messages from './Messages'
 import { FemaleUser } from './UserAvatar'
 
