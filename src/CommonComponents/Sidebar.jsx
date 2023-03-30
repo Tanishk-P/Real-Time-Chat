@@ -8,6 +8,8 @@ import { Button, Col, message, Popconfirm, Row } from 'antd';
 import { MdLogout, MdSettings } from 'react-icons/md';
 import { PageRoutes } from '../utls/PageRoutes';
 import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../firebase';
 
 function Sidebar() {
   const [isClicked, setClick] = useState(false);
@@ -17,6 +19,7 @@ function Sidebar() {
   const confirm = () => {
     message.success('Logged out successfully. Visit Again!');
     navigate(PageRoutes.login);
+    signOut(auth);
   };
 
   const cancel = () => {
