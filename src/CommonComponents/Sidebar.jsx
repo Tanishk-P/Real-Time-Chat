@@ -16,7 +16,7 @@ function Sidebar() {
 
   return (
     <div>
-      <div className='sidebar' style={{ display: isClicked? 'none' : 'block' }}>
+      <div className='sidebar' style={{ display: isClicked? 'block' : 'none' }}>
         <Navbar />
         <Search />
         <Chats />
@@ -46,7 +46,7 @@ function Sidebar() {
       }}>
         <Logo height={36} width={36} />
       </div>
-        {hover && isClicked && (
+        {hover && !isClicked && (
           <div className="menu">
             <Button size='middle' icon={<MdSettings size={18}/>} style={{ display: 'flex', alignItems: 'center'}} >Settings</Button>
             <Row>
