@@ -1,5 +1,5 @@
 import React from "react";
-import MaleUser, { FemaleUser } from "./UserAvatar";
+import MaleUser, { FemaleUser } from "../UserDetails/UserAvatar";
 
 function Message() {
   return (

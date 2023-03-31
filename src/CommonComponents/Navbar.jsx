@@ -1,16 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
 import Logo from "./Logo";
-import { User } from "./UserAvatar";
+import { User } from "../UserDetails/UserAvatar";
 import { MdLogout } from "react-icons/md";
 import { PageRoutes } from "../utls/PageRoutes";
 import { useNavigate } from "react-router-dom";
 import { message, Popconfirm } from "antd";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
-import { AuthContext } from "../Context/AuthContext";
+import { UserDetails } from "../UserDetails/UsersDetails";
 
 function Navbar() {
   const navigate = useNavigate();
+  const userDetails = UserDetails();
 
   const confirm = () => {
     message.success("Logged out successfully. Visit Again!");
@@ -21,8 +22,6 @@ function Navbar() {
     message.error("Great! Glad that you are with us.");
   };
 
-  const { currentUser } = useContext(AuthContext);
-
   return (
     <div className="navbar">
       <span className="logo">
@@ -30,7 +29,7 @@ function Navbar() {
       </span>
       <div className="user">
         <User />
-        <span>{currentUser.displayName}</span>
+        <span>{userDetails.name}</span>
         <Popconfirm
           title="Logout"
           description="Logging out so soon?"
