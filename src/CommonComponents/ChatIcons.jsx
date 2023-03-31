@@ -6,29 +6,37 @@ import icon from "../images/smiley.png";
 import inf from "../images/notification.png";
 
 export default function Camera() {
-    return <img src={cam} width={32} height={32} alt='camera' />
+  return <img src={cam} width={32} height={32} alt="camera" />;
 }
 
 export function AddFriend() {
-    return <img src={add} width={32} height={32} alt='addFriend' />
+  return <img src={add} width={32} height={32} alt="addFriend" />;
 }
 
 export function More() {
-    return <img onClick={() => MoreClicked()} src={more} width={32} height={32} alt='more' />
+  return (
+    <img
+      onClick={() => MoreClicked()}
+      src={more}
+      width={32}
+      height={32}
+      alt="more"
+    />
+  );
 }
 
 export function Send() {
-    return <img src={go} width={24} height={24} alt='send' />
+  return <img src={go} width={24} height={24} alt="send" />;
 }
 
 export function Icons() {
-    return <img src={icon} width={20} height={20} alt='icons' />
+  return <img src={icon} width={20} height={20} alt="icons" />;
 }
 
 export function Info() {
-    return <img src={inf} width={36} height={36} alt='info' />
+  return <img src={inf} width={36} height={36} alt="info" />;
 }
 
- function MoreClicked() {
-    return alert
+function MoreClicked() {
+  return alert;
 }

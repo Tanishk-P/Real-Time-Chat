@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import Search from './Search';
 import Chats from './Chats';
 import Logo from './Logo';
-import MaleUser from './UserAvatar';
+import MaleUser, { User } from './UserAvatar';
 import { Button, Col, message, Popconfirm, Row } from 'antd';
 import { MdLogout, MdSettings } from 'react-icons/md';
 import { PageRoutes } from '../utls/PageRoutes';
@@ -64,7 +64,7 @@ function Sidebar() {
             <Button size='middle' icon={<MdSettings size={18}/>} style={{ display: 'flex', alignItems:'center', justifyContent:'space-between' }} >Settings</Button>
             {/* <Row>
             <Col> */}
-              <Button type='primary' size={'middle'} shape={'default'} style={{ display: 'flex', alignItems:'center', justifyContent:'space-between'}} icon={<MaleUser width={24} height={24} />} >Profile</Button>
+              <Button type='primary' size={'middle'} shape={'default'} style={{ display: 'flex', alignItems:'center', justifyContent:'space-between'}} icon={<User width={24} height={24} />} >Profile</Button>
             {/* </Col>
             <Col> */}
               <Popconfirm 

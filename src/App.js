@@ -9,26 +9,26 @@ import { message } from 'antd';
 
 function App() {
 
-  const {currentUser} = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
   // console.log(currentUser);
 
-  const ProtectedRoute = ({children}) => {
+  const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
       message.error('Not logged in.');
       return (<Navigate to="/login" />);
     }
     return children;
   }
-  
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>  
-            <Route path='/' element={<Login />}/> 
-            <Route path='/login' element={<Login /> } /> 
-            <Route path='/signup' element={<Register />}/>
-            <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>}/>
-        </Routes>       
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Register />} />
+          <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        </Routes>
       </BrowserRouter>
     </div>
   );
