@@ -3,6 +3,7 @@ import add from "../images/add-friend.png";
 import more from "../images/menu.png";
 import go from "../images/paper-plane.png";
 import icon from "../images/smiley.png";
+import inf from "../images/notification.png";
 
 export default function Camera() {
     return <img src={cam} width={32} height={32} alt='camera' />
@@ -22,6 +23,10 @@ export function Send() {
 
 export function Icons() {
     return <img src={icon} width={20} height={20} alt='icons' />
+}
+
+export function Info() {
+    return <img src={inf} width={36} height={36} alt='info' />
 }
 
  function MoreClicked() {
