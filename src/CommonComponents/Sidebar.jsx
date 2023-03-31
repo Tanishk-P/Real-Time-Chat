@@ -10,6 +10,7 @@ import { PageRoutes } from '../utls/PageRoutes';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
+import { Info } from './ChatIcons';
 
 function Sidebar() {
   const [isClicked, setClick] = useState(false);
@@ -27,7 +28,7 @@ function Sidebar() {
   };
 
   return (
-    <div>
+    <div onMouseLeave={() => setHover(false)}>
       <div className='sidebar' style={{ display: isClicked? 'block' : 'none' }}>
         <Navbar />
         <Search />
@@ -39,7 +40,7 @@ function Sidebar() {
       <div
         className="logoContainer"
         onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
+        // onMouseLeave={() => setHover(false)}
       >
         <div className='logoButton'
         onClick={() => setClick(!isClicked)} 
@@ -56,17 +57,18 @@ function Sidebar() {
           top: '70px',
           boxShadow: "0 0 40px rgb(0, 50, 50)",
       }}>
-        <Logo height={36} width={36} />
+        <Info />
       </div>
         {hover && !isClicked && (
-          <div className="menu">
-            <Button size='middle' icon={<MdSettings size={18}/>} style={{ display: 'flex', alignItems: 'center'}} >Settings</Button>
-            <Row>
-            <Col>
-              <Button type='primary' size={'middle'} shape={'default'} icon={<MaleUser width={24} height={24} />} ></Button>
-            </Col>
-            <Col>
+          <div className="menu" onMouseLeave={() => setHover(false)} style={{ display: hover? 'flex': 'none', flexDirection:'column' }}>
+            <Button size='middle' icon={<MdSettings size={18}/>} style={{ display: 'flex', alignItems:'center', justifyContent:'space-between' }} >Settings</Button>
+            {/* <Row>
+            <Col> */}
+              <Button type='primary' size={'middle'} shape={'default'} style={{ display: 'flex', alignItems:'center', justifyContent:'space-between'}} icon={<MaleUser width={24} height={24} />} >Profile</Button>
+            {/* </Col>
+            <Col> */}
               <Popconfirm 
+                style={{ zIndex: 3000}}
                 title='Log Out'
                 description='Logging out so soon?'
                 onConfirm={confirm}
@@ -77,8 +79,8 @@ function Sidebar() {
                 >
                 <Button danger type='primary' size='middle'><MdLogout size={20} /></Button>
               </Popconfirm>
-            </Col>
-          </Row>
+            {/* </Col>
+          </Row> */}
           </div>
         )}
       </div>

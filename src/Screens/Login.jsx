@@ -14,15 +14,31 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    message.loading('Hang on, validating', [1]);
 
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate(PageRoutes.home)
-    } catch (error) {
-      setError(true);
-      message.error('Something went wrong');
-    }
+    if (validation) {
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        message.success('Hooray! Welcome back.', [3])
+        navigate(PageRoutes.home);
+      } catch (error) {
+        setError(true);
+        message.error('Oops, Something went wrong', [2]);
+      }
+    } 
   }
+    
+
+  const validation = () => {
+    let validated = true;
+    if (email) {
+      message.error('Invalid email.');
+      validated = false;
+    }
+    // perform additional validation checks for email, if needed
+    return validated;
+  }
+  
 
   return (
     <div className="formContainer">

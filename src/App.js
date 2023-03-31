@@ -5,6 +5,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from './Screens/Home';
 import { useContext } from 'react';
 import { AuthContext } from './Context/AuthContext';
+import { message } from 'antd';
 
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
 
   const ProtectedRoute = ({children}) => {
     if (!currentUser) {
-      return <Navigate to="/login" />
+      message.error('Not logged in.');
+      return (<Navigate to="/login" />);
     }
     return children;
   }
