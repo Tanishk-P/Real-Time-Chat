@@ -28,7 +28,7 @@ function Register() {
       uploadTask.on(
         (error) => {
           setError(true);
-          message.error('Something went wrong');
+          message.error('Oops, Something went wrong');
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
@@ -63,7 +63,7 @@ function Register() {
                 <input type={'text'} placeholder='User name' value={name} onChange={(e) => setName(e.target.value)} />
                 <input type={'email'} placeholder='Email address' value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input type={'password'} placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
-                <input type={'file'} id='file' hidden value={file} onChange={(e) => setFile(e.target.value)}/>
+                <input type={'file'} id='file' hidden onChange={(e) => setFile(e.target.files[0])}/>
                 <label htmlFor="file" style={{cursor: 'pointer'}}>
                   <FcAddImage size={30} /> 
                   <span>Add Profile Image.</span>
