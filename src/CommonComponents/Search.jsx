@@ -1,6 +1,6 @@
 import React from "react";
 import { FiSearch } from "react-icons/fi";
-import MaleUser, { FemaleUser } from "./UserAvatar";
+import MaleUser, { FemaleUser } from "../UserDetails/UserAvatar";
 
 function Search() {
   return (
