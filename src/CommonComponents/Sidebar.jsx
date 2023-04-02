@@ -31,13 +31,13 @@ function Sidebar() {
 
   return (
     <div onMouseLeave={() => setHover(false)}>
-      <div className='sidebar' style={{ display: isClicked? 'block' : 'none' }}>
+      <div className='sidebar' style={{ display: isClicked? 'none' : 'block' }}>
         <Navbar />
         <Search />
         <Chats />
-        <div className='homeInfo'>
+        {/* <div className='homeInfo'>
           <span>Powered by <Logo height={24} width={24} /> Live Chat </span>
-        </div>
+        </div> */}
       </div>
       <div
         className="logoContainer"
@@ -61,7 +61,7 @@ function Sidebar() {
       }}>
         <Info />
       </div>
-        {hover && !isClicked && (
+        {hover && isClicked && (
           <div className="menu" onMouseLeave={() => setHover(false)} style={{ display: hover? 'flex': 'none', flexDirection:'column' }}>
             <Button type='primary' size={'middle'} style={{ display: 'flex', justifyContent:'center', gap:'5px'}} icon={<User width={24} height={24} />}>{userDetails.name}</Button>
             <Row>
