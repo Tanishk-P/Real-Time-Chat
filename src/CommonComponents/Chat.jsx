@@ -13,7 +13,7 @@ function Chat() {
     <div className="chat">
       <div className="chatInfo">
         <span>
-         { chatDetails.photoURL ? <ChatUserIcon /> : <NoUser />} {chatDetails.name}
+         { chatDetails?.photoURL ? <ChatUserIcon /> : <NoUser />} {chatDetails?.name}
         </span>
         <div className="chatIcons">
           <Camera />

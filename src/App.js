@@ -10,7 +10,6 @@ import { message } from 'antd';
 function App() {
 
   const { currentUser } = useContext(AuthContext);
-  // console.log(currentUser);
 
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
