@@ -61,14 +61,16 @@
 
 import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from "firebase/firestore";
 import { db } from "../firebase";
 import { Input, message } from "antd";
+import { UserDetails } from "../UserDetails/UsersDetails";
 
 function Search() {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState(null);
   const [error, setError] = useState(false);
+  const userDetails = UserDetails();
 
   const handleSearch = async (event) => {
     event.preventDefault();
@@ -85,6 +87,41 @@ function Search() {
       message.error("Cannot find users");
     }
   };
+
+  const handleSelect = async () => {
+    //check whether the group(chats in firestore) exists, if not create
+    const combinedId = userDetails.uid > user[0].uid ? userDetails.uid + user[0].uid : user[0].uid + userDetails.uid; 
+    console.log(combinedId)
+    try {
+       const response = await getDoc(doc(db, "chats", combinedId));
+       if (!response.exists()) {
+        // create a chat in collection
+        await setDoc(doc(db, "chats", combinedId),{ messages: [] });
+        // create user chats 
+        await updateDoc(doc(db, "userChats", userDetails.uid),{
+          [combinedId + ".userInfo"] : {
+            uid: user[0].uid,
+            displayName: user[0].displayName,
+            photoURL: user[0].photoURL
+          },
+          [combinedId + ".date"] : serverTimestamp()
+        });
+        await updateDoc(doc(db, "userChats", user[0].uid),{
+          [combinedId + ".userInfo"] : {
+            uid: userDetails.uid,
+            displayName: userDetails.displayName,
+            photoURL: userDetails.photoURL
+          },
+          [combinedId + ".date"] : serverTimestamp()
+        });
+       }
+    } catch (error) {
+      
+    }
+    setUser(null);
+    setUsername('')
+    //create user chats
+  }
 
   return (
     <div className="search">
@@ -103,7 +140,7 @@ function Search() {
         </div>
       </form>
       {user && user.length > 0 && (
-        <div className="userInfo">
+        <div className="userInfo" onClick={handleSelect} >
           <small style={{ color: '#a6a4df'}} >Found the following:</small>
           {user.map((user) => (
             <div key={user.uid} className="userProfile">
