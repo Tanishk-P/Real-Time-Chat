@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../Context/AuthContext';
 import male from '../images/man.png';
 import female from '../images/woman.png';
+import none from '../images/user.png';
 
 export default function MaleUser(props) {
     const { height = 32, width = 32} = props;
@@ -11,6 +12,11 @@ export default function MaleUser(props) {
 export function FemaleUser(props) {
     const {width = 32, height = 32 } = props;
     return <img src={female} alt='female' height={height} width={width} />
+}
+
+export function NoUser(props) {
+    const {width = 32, height = 32 } = props;
+    return <img src={none} alt='none' height={height} width={width} />
 }
 
 export function User(props) {

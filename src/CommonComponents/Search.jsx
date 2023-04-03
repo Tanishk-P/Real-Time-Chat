@@ -140,7 +140,7 @@ function Search() {
         </div>
       </form>
       {user && user.length > 0 && (
-        <div className="userInfo" onClick={handleSelect} >
+        <div className="userInfo" onClick={() => handleSelect} >
           <small style={{ color: '#a6a4df'}} >Found the following:</small>
           {user.map((user) => (
             <div key={user.uid} className="userProfile">

@@ -123,9 +123,9 @@
         .sidebar{
             flex: 1;
             // background-color: rgba(244, 55, 115, 0.948);
-            border-right: 1px solid #a6a4df;
+            // border-right: 1px solid #a6a4df;
             backdrop-filter: blur(10px);
-            position: relative;
+            // position: relative;
 
             .navbar{
                 display: flex;
@@ -249,7 +249,7 @@
                         display: flex;
                         flex-direction: column;
                         span{
-                            font-weight: bold;
+                            font-weight: 450;
                         }
                         p{
                             font-size: small;
@@ -309,6 +309,7 @@
           }
         .chat{
             flex: 2;
+            // border-left: 1px solid #a6a4df;
             // background-color: #d2cd6b;
             // backdrop-filter: blur(2px);
             position: relative;
