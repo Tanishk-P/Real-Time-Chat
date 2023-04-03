@@ -88,6 +88,8 @@ function Search() {
     }
   };
 
+  console.log(user)
+
   const handleSelect = async () => {
     //check whether the group(chats in firestore) exists, if not create
     const combinedId = userDetails.uid > user[0].uid ? userDetails.uid + user[0].uid : user[0].uid + userDetails.uid; 
@@ -116,7 +118,8 @@ function Search() {
         });
        }
     } catch (error) {
-      
+      // setError(true);
+      // message.error("Cannot search users.")
     }
     setUser(null);
     setUsername('')
@@ -140,7 +143,7 @@ function Search() {
         </div>
       </form>
       {user && user.length > 0 && (
-        <div className="userInfo" onClick={handleSelect} >
+        <div className="userInfo" onClick={() => handleSelect()} >
           <small style={{ color: '#a6a4df'}} >Found the following:</small>
           {user.map((user) => (
             <div key={user.uid} className="userProfile">

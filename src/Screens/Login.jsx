@@ -1,10 +1,11 @@
-import { message } from "antd";
+import { Input, message } from "antd";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../CommonComponents/Logo";
 import { PageRoutes } from "../utls/PageRoutes";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 
 function Login() {
   const navigate = useNavigate();
@@ -47,17 +48,19 @@ function Login() {
         <span className="title">Login</span>
         <form onSubmit={handleSubmit}>
           {/* <input type={'text'} placeholder='Full Name'/> */}
-          <input
+          <Input
             type={"email"}
             placeholder="Email address"
             value={email}
+            style={{ width: '300px', padding: "10px"}}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <input
-            type={"password"}
+          <Input.Password
             placeholder="Password"
             value={password}
+            style={{ padding: "10px" }}
             onChange={(e) => setPassword(e.target.value)}
+            iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
           />
           <button>Sign In</button>
         </form>

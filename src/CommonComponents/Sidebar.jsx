@@ -30,7 +30,7 @@ function Sidebar() {
   };
 
   return (
-    <div onMouseLeave={() => setHover(false)}>
+    <div style={{ borderRight: '1px solid #a6a4df'}} onMouseLeave={() => setHover(false)}>
       <div className='sidebar' style={{ display: isClicked? 'none' : 'block' }}>
         <Navbar />
         <Search />
