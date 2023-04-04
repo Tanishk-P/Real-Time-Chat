@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Input, message } from "antd";
 import { Icons, Send } from "./ChatIcons";
 import { ImAttachment } from "react-icons/im";
 import { FaCamera } from "react-icons/fa";
 import { Timestamp, arrayUnion, doc, serverTimestamp, updateDoc } from "firebase/firestore";
 import { db, storage } from "../firebase";
-import { ChatDetails } from "../ChatDetails/ChatDetails";
 import { v4 as uuid } from "uuid";
-import { UserDetails } from "../UserDetails/UsersDetails";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { ChatContext } from "../Context/ChatContext";
+import { AuthContext } from "../Context/AuthContext";
 
 function ChatInput() {
   const [text, setText] = useState('');
   const [file, setFile] = useState(null);
   const [error, setError] = useState(false);
-  const chatDetails = ChatDetails();
-  const userDetails = UserDetails();
+  const { data } = useContext(ChatContext);
+  const { currentUser } = useContext(AuthContext);
 
   const handleSend = async () => {
       if (file){
@@ -29,11 +29,11 @@ function ChatInput() {
           },
           () => {
             getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-              await updateDoc(doc(db, "chats", chatDetails.chatId), {
+              await updateDoc(doc(db, "chats", data.chatId), {
                 messages: arrayUnion({
                   id: uuid(),
                   text,
-                  senderId: userDetails.uid,
+                  senderId: currentUser.uid,
                   date: Timestamp.now(),
                   file: downloadURL
                 })
@@ -43,27 +43,27 @@ function ChatInput() {
         );
 
       } else {
-        await updateDoc(doc(db, "chats", chatDetails.chatId), {
+        await updateDoc(doc(db, "chats", data.chatId), {
           messages: arrayUnion({
             id: uuid(),
             text,
-            senderId: userDetails.uid,
+            senderId: currentUser.uid,
             date: Timestamp.now()
           })
         })
       }
 
-      await updateDoc(doc(db, "userChats", userDetails.uid), {
-        [chatDetails.chatId + ".lastMessage"] : {
+      await updateDoc(doc(db, "userChats", currentUser.uid), {
+        [data.chatId + ".lastMessage"] : {
           text
         },
-        [chatDetails.chatId + ".date"] : serverTimestamp(),
+        [data.chatId + ".date"] : serverTimestamp(),
       });
-      await updateDoc(doc(db, "userChats", chatDetails.uid), {
-        [chatDetails.chatId + ".lastMessage"] : {
+      await updateDoc(doc(db, "userChats", data.user.uid), {
+        [data.chatId + ".lastMessage"] : {
           text
         },
-        [chatDetails.chatId + ".date"] : serverTimestamp(),
+        [data.chatId + ".date"] : serverTimestamp(),
       });
       setText('');
       setFile(null);
