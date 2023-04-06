@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useRef } from "react";
-import MaleUser, { FemaleUser, User } from "../UserDetails/UserAvatar";
-import ChatUserIcon from "../ChatDetails/ChatUserIcon";
 import { AuthContext } from "../Context/AuthContext";
 import { ChatContext } from "../Context/ChatContext";
 import ChatDate from "../CommonComponents/ChatDate";

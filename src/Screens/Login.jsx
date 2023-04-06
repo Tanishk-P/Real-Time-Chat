@@ -22,6 +22,7 @@ function Login() {
         await signInWithEmailAndPassword(auth, email, password);
         message.success("Hooray! Welcome back.", [3]);
         navigate(PageRoutes.home);
+        // window.location.reload();
       } catch (error) {
         setError(true);
         message.error("Oops, Something went wrong", [2]);

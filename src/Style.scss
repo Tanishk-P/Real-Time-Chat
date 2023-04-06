@@ -314,6 +314,16 @@
             // backdrop-filter: blur(2px);
             position: relative;
 
+            .displayBlank{
+                // background-color: #a6a4df;
+                backdrop-filter: blur(6px);
+                color: #a7bcff;
+                display: flex;
+                justify-content: center;
+                align-items:center ;
+                height: -webkit-fill-available;
+            }
+
             .chatInfo{
                 display: flex;
                 padding: 7px;

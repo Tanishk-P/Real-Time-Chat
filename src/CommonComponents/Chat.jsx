@@ -1,28 +1,39 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Camera, { AddFriend, More } from "./ChatIcons";
 import ChatInput from "./ChatInput";
 import Messages from "./Messages";
 import { FemaleUser, NoUser } from "../UserDetails/UserAvatar";
-import { ChatDetails } from "../ChatDetails/ChatDetails";
 import ChatUserIcon from "../ChatDetails/ChatUserIcon";
+import { ChatContext } from "../Context/ChatContext";
+import { AuthContext } from "../Context/AuthContext";
 
 function Chat() {
-  const chatDetails = ChatDetails();
-
+  const { data } = useContext(ChatContext);
+  const { currentUser } = useContext(AuthContext);
+  const combinedId = currentUser.uid > data?.user?.uid ? currentUser.uid + data?.user?.uid : data?.user?.uid + currentUser.uid;
+  
   return (
     <div className="chat">
-      <div className="chatInfo">
-        <span>
-         { chatDetails?.photoURL ? <ChatUserIcon /> : <NoUser />} {chatDetails?.name}
-        </span>
-        <div className="chatIcons">
-          <Camera />
-          <AddFriend />
-          <More />
+      {combinedId === data.chatId ? (
+        <>
+          <div className="chatInfo">
+          <span>
+          { data?.user?.photoURL ? <ChatUserIcon /> : <NoUser />} {data?.user?.displayName}
+          </span>
+          <div className="chatIcons">
+            <Camera />
+            <AddFriend />
+            <More />
+          </div>
         </div>
-      </div>
-      <Messages />
-      <ChatInput />
+        <Messages />
+        <ChatInput />
+        </>
+      ) : (
+        <div className="displayBlank">
+          <label>Click any user to Start chatting!</label>
+        </div>
+      )}      
     </div>
   );
 }
