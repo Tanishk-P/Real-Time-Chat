@@ -1,23 +1,27 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Message from './Message'
 import { useState } from 'react'
 import { useEffect } from 'react';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase';
-import { ChatDetails } from '../ChatDetails/ChatDetails';
+import { ChatContext } from '../Context/ChatContext';
+import { AuthContext } from '../Context/AuthContext';
 
 function Messages() {
   const [messages, setMessages] = useState([]);
-  const chatDetails = ChatDetails();
+  const { data } = useContext(ChatContext);
+  const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
-    const unsub = onSnapshot(doc(db, "chats", chatDetails.chatId), (doc) => {
+    if (currentUser.uid) {
+      const unsub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
       doc.exists() && setMessages(doc.data().messages);
     });
-    return () => {
-      unsub();
+      return () => {
+        unsub();
+      }
     }
-  },[chatDetails.chatId]);
+  },[data.chatId]);
 
   // console.log(messages);
 
