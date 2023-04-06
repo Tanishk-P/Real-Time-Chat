@@ -30,7 +30,7 @@ function Sidebar() {
   };
 
   return (
-    <div style={{ borderRight: '1px solid #a6a4df'}} onMouseLeave={() => setHover(false)}>
+    <div className='toggler' style={{ borderRight: '1px solid #a6a4df'}} onMouseLeave={() => setHover(false)}>
       <div className='sidebar' style={{ display: isClicked? 'none' : 'block' }}>
         <Navbar />
         <Search />
@@ -46,19 +46,19 @@ function Sidebar() {
       >
         <div className='logoButton'
         onClick={() => setClick(!isClicked)} 
-        style={{
-          cursor: 'pointer',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          position: 'fixed',
-          padding: '5px',
-          borderRadius: '10px',
-          zIndex: 3000,
-          left: '160px',
-          top: '70px',
-          boxShadow: "0 0 40px rgb(0, 50, 50)",
-      }}>
+        // style={{
+        //   cursor: 'pointer',
+        //   display: 'flex',
+        //   justifyContent: 'center',
+        //   alignItems: 'center',
+        //   position: 'fixed',
+        //   padding: '5px',
+        //   borderRadius: '10px',
+        //   zIndex: 3000,
+        //   left: '160px',
+        //   top: '70px',
+        //   boxShadow: "0 0 40px rgb(0, 50, 50)",}}
+      >
         <Info />
       </div>
         {hover && isClicked && (

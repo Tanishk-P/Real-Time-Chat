@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "./Logo";
-import { User } from "../UserDetails/UserAvatar";
+import { NoUser, User } from "../UserDetails/UserAvatar";
 import { MdLogout } from "react-icons/md";
 import { PageRoutes } from "../utls/PageRoutes";
 import { useNavigate } from "react-router-dom";
@@ -28,7 +28,7 @@ function Navbar() {
         <Logo /> Live Chat
       </span>
       <div className="user">
-        <User />
+        { userDetails.photo ? <User /> : <NoUser />}
         <span>{userDetails.name}</span>
         <Popconfirm
           title="Logout"
