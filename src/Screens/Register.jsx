@@ -36,6 +36,7 @@ function Register() {
           message.error("Oops, Something went wrong");
         },
         () => {
+          message.loading("Hang on, in process", [2.5]);
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             await updateProfile(response.user, {
               displayName: name,
@@ -49,6 +50,7 @@ function Register() {
               photoURL: downloadURL,
             });
             await setDoc(doc(db, "userChats", response.user.uid), {});
+            message.success("Successfully created account. Have a nice time!")
             navigate(PageRoutes.home);
           });
         }
