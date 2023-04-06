@@ -11,9 +11,10 @@ function Messages() {
   const [messages, setMessages] = useState([]);
   const { data } = useContext(ChatContext);
   const { currentUser } = useContext(AuthContext);
+  const combinedId = currentUser.uid > data?.user?.uid ? currentUser.uid + data?.user?.uid : data?.user?.uid + currentUser.uid;
 
   useEffect(() => {
-    if (currentUser.uid) {
+    if (combinedId === data.chatId) {
       const unsub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
       doc.exists() && setMessages(doc.data().messages);
     });
@@ -21,7 +22,7 @@ function Messages() {
         unsub();
       }
     }
-  },[data.chatId]);
+  },[combinedId, data.chatId]);
 
   // console.log(messages);
 
