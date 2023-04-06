@@ -80,6 +80,7 @@ function ChatInput() {
         style={{ borderRadius: "20px" }}
         placeholder="Message"
         onChange={(event) => setText(event.target.value)}
+        onPressEnter={() => handleSend()}
         value={text}
         prefix={<Icons />}
         suffix={
