@@ -65,7 +65,7 @@
             justify-content: center;
             gap: 10px;
             @include mobile{
-                font-size: 36px;
+                font-size: 32px;
                 align-items: center;
             }
         }        
@@ -81,30 +81,50 @@
             flex-direction: column;
             gap: 15px;
 
-            input{
-                padding: 15px;
+            .email{
+                padding: 10px;
                 border: none;
-                width: 200px;
-                outline: none;
-                border-bottom: 1px solid #a7bcff;
+                width: 250px;
+                // outline: none;
+                border: 1px solid #a7bcff;
+                box-shadow: 0 0px 10px #202023;
                 background: none;
-                font-size: 12px;
+                font-size: 14px;
                 color: #a7bcff;
                 &::placeholder{
                     color: #a7bcff;
                     font-size: 12px;
                 }
             }
+            input{
+                // padding: 10px;
+                // border: none;
+                // width: 200px;
+                // outline: none;
+                // border: 1px solid #a7bcff;
+                // box-shadow: 0 0px 4px #202023;
+                background: none;
+                font-size: 14px;
+                color: #a7bcff;
+                &::placeholder{
+                    color: #a7bcff;
+                    font-size: 12px;
+                }
+                @include mobile{}
+            }
             button{
                 cursor: pointer;
-                padding: 15px;
-                border: none;
+                padding: 12px;
+                border: 1px solid #a7bcff;
                 outline: none;
+                box-shadow: 0 0px 10px #202023;
+                // background: transparent;
+                backdrop-filter: blur(100px);
                 // background-color: #a6a4df ;
                 color: #5d5b8d;
                 background-color: rgba(241, 241, 71, 0.886);
                 border-radius: 10px;
-                font-size: 16px;
+                font-size: 14px;
             }
             button:hover{
                 background-color: rgba(244, 55, 115, 0.948);
@@ -159,8 +179,8 @@
         flex-direction: row;
         overflow: hidden;
         @include mobile {
-            width: 94%;
-            height: 96%;
+            width: 90%;
+            height: 90%;
            }
 
         .toggler{
@@ -356,7 +376,7 @@
             }
             @include mobile {
                 position: relative;
-                left: 650%;
+                left: 620%;
                 top: 5px;
               }
             &:hover{
