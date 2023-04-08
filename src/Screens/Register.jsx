@@ -87,7 +87,7 @@ function Register() {
           <Input.Password
             // type="password"
             placeholder="Password"
-            style={{ padding: "10px", background: "none", backgroundColor: "none", boxShadow: "0 0px 10px #202023", border: "1px solid #a7bcff" }}
+            style={{ padding: "10px", backgroundColor: "rgba(0, 0, 0, 0.4)", boxShadow: "0 0px 10px #202023", border: "1px solid #a7bcff" }}
             value={password}
             iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined style={{color: "#a7bcff"}} />)}
             onChange={(e) => setPassword(e.target.value)}
