@@ -69,32 +69,33 @@ function Register() {
         </span>
         <span className="title">Register</span>
         <form onSubmit={handleSubmit}>
-          <Input
+          <input
             type={"text"}
             placeholder="User name"
-            style={{
-              width: "300px",
-              padding: "10px"
-            }}
+            // style={{
+            //   width: "300px",
+            //   padding: "10px"
+            // }}
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <Input
+          <input
             type={"email"}
             placeholder="Email address"
-            style={{
-              width: "300px",
-              padding: "10px"
-            }}
+            // style={{
+            //   width: "300px",
+            //   padding: "10px"
+            // }}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <Input.Password
+          <input
+          type="password"
             placeholder="Password"
-            style={{
-              padding: "10px",
-              color: "#a7bcff"
-            }}
+            // style={{
+            //   padding: "10px",
+            //   color: "#a7bcff"
+            // }}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />

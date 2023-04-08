@@ -49,19 +49,20 @@ function Login() {
         <span className="title">Login</span>
         <form onSubmit={handleSubmit}>
           {/* <input type={'text'} placeholder='Full Name'/> */}
-          <Input
+          <input
             type={"email"}
             placeholder="Email address"
             value={email}
-            style={{ width: '300px', padding: "10px"}}
+            // style={{ width: '300px', padding: "10px"}}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <Input.Password
+          <input
             placeholder="Password"
+            type="password"
             value={password}
-            style={{ padding: "10px" }}
+            // style={{ padding: "10px" }}
             onChange={(e) => setPassword(e.target.value)}
-            iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+            // iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
           />
           <button>Sign In</button>
         </form>

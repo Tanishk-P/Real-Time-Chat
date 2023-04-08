@@ -59,7 +59,7 @@ function Sidebar() {
         //   top: '70px',
         //   boxShadow: "0 0 40px rgb(0, 50, 50)",}}
       >
-        <Info />
+        <Logo width={36} height={36} />
       </div>
         {hover && isClicked && (
           <div className="menu" onMouseLeave={() => setHover(false)} style={{ display: hover? 'flex': 'none', flexDirection:'column' }}>
