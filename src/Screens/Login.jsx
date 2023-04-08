@@ -44,7 +44,7 @@ function Login() {
     <div className="formContainer">
       <div className="formWrapper">
         <span className="logo">
-          <Logo /> Live Chat
+          <Logo width={48} height={48} /> Live Chat
         </span>
         <span className="title">Login</span>
         <form onSubmit={handleSubmit}>

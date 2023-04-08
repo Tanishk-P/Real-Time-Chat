@@ -53,7 +53,7 @@
             padding: 10%;
             // width: 42vw;
             // height: 50vh;
-            top: 10%;
+            top: 20%;
             left: 10%;
         }
 
@@ -65,8 +65,8 @@
             justify-content: center;
             gap: 10px;
             @include mobile{
-                font-size: 24px;
-                align-items: center;
+                font-size: 36px;
+                // align-items: center;
             }
         }        
         .title{
