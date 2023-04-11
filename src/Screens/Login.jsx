@@ -44,24 +44,27 @@ function Login() {
     <div className="formContainer">
       <div className="formWrapper">
         <span className="logo">
-          <Logo /> Live Chat
+          <Logo width={40} height={40} /> Live Chat
         </span>
         <span className="title">Login</span>
         <form onSubmit={handleSubmit}>
           {/* <input type={'text'} placeholder='Full Name'/> */}
           <Input
+          className="email"
             type={"email"}
             placeholder="Email address"
             value={email}
-            style={{ width: '300px', padding: "10px"}}
+            // style={{ width: '250px', padding: "10px"}}
             onChange={(e) => setEmail(e.target.value)}
           />
           <Input.Password
+            // className="password"
             placeholder="Password"
+            // type="password"
             value={password}
-            style={{ padding: "10px" }}
+            style={{ padding: "10px", backgroundColor: "rgba(0, 0, 0, 0.4)", boxShadow: "0 0px 10px #202023", border: "1px solid #a7bcff" }}
             onChange={(e) => setPassword(e.target.value)}
-            iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+            iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined style={{color: "#a7bcff"}} />)}
           />
           <button>Sign In</button>
         </form>

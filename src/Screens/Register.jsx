@@ -8,6 +8,7 @@ import { auth, storage, db } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { Input, message } from "antd";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 
 function Register() {
   const navigate = useNavigate();
@@ -65,37 +66,30 @@ function Register() {
     <div className="formContainer">
       <div className="formWrapper">
         <span className="logo">
-          <Logo /> Live Chat
+          <Logo width={40} height={40} /> Live Chat
         </span>
         <span className="title">Register</span>
         <form onSubmit={handleSubmit}>
           <Input
+          className="email"
             type={"text"}
             placeholder="User name"
-            style={{
-              width: "300px",
-              padding: "10px"
-            }}
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           <Input
+            className="email"
             type={"email"}
             placeholder="Email address"
-            style={{
-              width: "300px",
-              padding: "10px"
-            }}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <Input.Password
+            // type="password"
             placeholder="Password"
-            style={{
-              padding: "10px",
-              color: "#a7bcff"
-            }}
+            style={{ padding: "10px", backgroundColor: "rgba(0, 0, 0, 0.4)", boxShadow: "0 0px 10px #202023", border: "1px solid #a7bcff" }}
             value={password}
+            iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined style={{color: "#a7bcff"}} />)}
             onChange={(e) => setPassword(e.target.value)}
           />
           <input

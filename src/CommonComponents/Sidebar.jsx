@@ -4,7 +4,7 @@ import Search from './Search';
 import Chats from './Chats';
 import Logo from './Logo';
 import { User } from '../UserDetails/UserAvatar';
-import { Button, Col, message, Popconfirm, Row } from 'antd';
+import { Badge, Button, Col, message, Popconfirm, Row } from 'antd';
 import { MdLogout, MdSettings } from 'react-icons/md';
 import { PageRoutes } from '../utls/PageRoutes';
 import { useNavigate } from 'react-router-dom';
@@ -44,22 +44,8 @@ function Sidebar() {
         onMouseEnter={() => setHover(true)}
         // onMouseLeave={() => setHover(false)}
       >
-        <div className='logoButton'
-        onClick={() => setClick(!isClicked)} 
-        // style={{
-        //   cursor: 'pointer',
-        //   display: 'flex',
-        //   justifyContent: 'center',
-        //   alignItems: 'center',
-        //   position: 'fixed',
-        //   padding: '5px',
-        //   borderRadius: '10px',
-        //   zIndex: 3000,
-        //   left: '160px',
-        //   top: '70px',
-        //   boxShadow: "0 0 40px rgb(0, 50, 50)",}}
-      >
-        <Info />
+        <div className='logoButton' onClick={() => setClick(!isClicked)}>
+        <Badge color='green' count={'!'} offset={[5]} ><Logo width={36} height={36} /></Badge>
       </div>
         {hover && isClicked && (
           <div className="menu" onMouseLeave={() => setHover(false)} style={{ display: hover? 'flex': 'none', flexDirection:'column' }}>
@@ -86,7 +72,6 @@ function Sidebar() {
           </div>
         )}
       </div>
-
     </div>
   )
 }

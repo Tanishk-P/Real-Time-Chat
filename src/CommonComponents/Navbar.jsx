@@ -4,7 +4,7 @@ import { NoUser, User } from "../UserDetails/UserAvatar";
 import { MdLogout } from "react-icons/md";
 import { PageRoutes } from "../utls/PageRoutes";
 import { useNavigate } from "react-router-dom";
-import { message, Popconfirm } from "antd";
+import { Badge, message, Popconfirm } from "antd";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { UserDetails } from "../UserDetails/UsersDetails";
@@ -28,7 +28,7 @@ function Navbar() {
         <Logo /> Live Chat
       </span>
       <div className="user">
-        { userDetails.photo ? <User /> : <NoUser />}
+      <Badge dot color="green" offset={[-5,28]}>{ userDetails.photo ? <User /> : <NoUser />}</Badge>
         <span>{userDetails.name}</span>
         <Popconfirm
           title="Logout"
