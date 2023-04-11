@@ -306,7 +306,7 @@
             .chats{
                 display: flex;
                 flex-direction: column;
-                height: 390px;
+                height: max-content;
                 overflow-y: scroll;
                 &::-webkit-scrollbar{
                     display: none;
@@ -323,12 +323,14 @@
 
                     .userChatInfo{
                         display: flex;
+                        color: #a7bcff;
+                        gap: 5px;
                         flex-direction: column;
                         span{
-                            font-weight: 450;
+                            font-weight: 500;
                         }
                         p{
-                            font-size: small;
+                            font-size: smaller;
                             display: contents;
                         }
                     }
@@ -439,7 +441,7 @@
 
             .chatInfo{
                 display: flex;
-                padding: 7px;
+                padding: 5px;
                 justify-content: space-between;
                 // align-items: center;
                 gap: 10px;

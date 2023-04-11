@@ -6,6 +6,7 @@ import { FemaleUser, NoUser } from "../UserDetails/UserAvatar";
 import ChatUserIcon from "../ChatDetails/ChatUserIcon";
 import { ChatContext } from "../Context/ChatContext";
 import { AuthContext } from "../Context/AuthContext";
+import { Badge } from "antd";
 
 function Chat() {
   const { data } = useContext(ChatContext);
@@ -18,7 +19,11 @@ function Chat() {
         <>
           <div className="chatInfo">
           <span>
-          { data?.user?.photoURL ? <ChatUserIcon /> : <NoUser />} {data?.user?.displayName}
+          <Badge dot color="green" offset={[-3,28]}>{ data?.user?.photoURL ? <ChatUserIcon /> : <NoUser />} </Badge>
+           <div style={{ display: "flex", flexDirection: "column"}}>
+            {data?.user?.displayName}
+            <small style={{ fontSize: "12px"}}>{data?.user?.status}</small>
+           </div> 
           </span>
           <div className="chatIcons">
             <Camera />

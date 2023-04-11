@@ -4,6 +4,7 @@ import { db } from '../firebase';
 import { ChatContext } from '../Context/ChatContext';
 import { AuthContext } from '../Context/AuthContext';
 import { NoUser } from '../UserDetails/UserAvatar';
+import { Badge } from 'antd';
 
 function Chats() {
   const [chats, setChats] = useState([]);
@@ -32,11 +33,14 @@ function Chats() {
     <div className='chats'>
       {Object.entries(chats)?.sort((a,b) => b[1].date - a[1].date).map((chat) => (
         <div className='userProfile' key={chat[0]} onClick={() => handleSelect(chat[1]?.userInfo)}>
-          {chat[1]?.userInfo ? <img src={chat[1]?.userInfo?.photoURL} alt='profile' height={32} width={32} style={{objectFit: 'cover', borderRadius: '20px'}} /> : <NoUser />}
-          <div className='userChatInfo'>
-            {chat[1]?.userInfo ? <span>{chat[1]?.userInfo?.displayName}</span> : <span>Unknown User</span>}
-            <p>{chat[1]?.lastMessage?.text}</p>
-          </div>
+          <Badge dot color='green' offset={[-4,28]}>{chat[1]?.userInfo ? <img src={chat[1]?.userInfo?.photoURL} alt='profile' height={32} width={32} style={{objectFit: 'cover', borderRadius: '20px'}} /> : <NoUser />}</Badge>
+          <Badge>
+            <div className='userChatInfo'>
+              {chat[1]?.userInfo ? <span>{chat[1]?.userInfo?.displayName}</span> : <span>Unknown User</span>}
+              <p>{chat[1]?.lastMessage?.text}</p>
+            </div>
+          </Badge>  
+          <Badge count={'!'} color='cyan' size='small' style={{ display:'block', position:'fixed', right:'30px', margin:'10px', fontSize:'11px' }} />
         </div>
       ))}
     </div>
